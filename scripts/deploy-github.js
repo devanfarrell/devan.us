@@ -1,12 +1,15 @@
-const ghpages = require('gh-pages')
+const ghpages = require("gh-pages");
 
 ghpages.publish(
-  'public',
+  "build",
   {
-    branch: 'master',
-    repo: 'https://github.com/devanfarrell/devandotus.git',
+    branch: "gh-pages",
+    repo: "https://github.com/devanfarrell/devandotus.git"
   },
-  () => {
-    console.log('Deploy Complete!')
+  e => {
+    console.log("Deploy Complete!");
+    if (e) {
+      console.log(e);
+    }
   }
-)
+);
