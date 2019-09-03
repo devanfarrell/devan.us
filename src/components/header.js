@@ -1,42 +1,72 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
+import Logo from "./logo";
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      background: `#2F2B2C`,
+      marginBottom: `1.45rem`
     }}
   >
     <div
       style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
         margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: `1.45rem 1.0875rem`
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <Link to="/">
+        <Logo style={{ width: "40px", fill: "#1ea2f1" }} />
+      </Link>
+      <div style={{ display: "inlineBlock" }}>
         <Link
           to="/"
           style={{
-            color: `white`,
-            textDecoration: `none`,
+            color: "#E9F6FE",
+            textDecoration: 'none',
+            marginLeft: '58px'
           }}
         >
-          {siteTitle}
+          About
         </Link>
-      </h1>
+        <Link
+          to="/blog"
+          style={{
+            color: "#E9F6FE",
+            textDecoration: 'none',
+            marginLeft: '58px'
+          }}
+        >
+          Blog
+        </Link>
+        <Link
+          to="/resume"
+          style={{
+            color: "#1EA2F1",
+            border: "solid 2px #1EA2F1",
+            textDecoration: "none",
+            padding: "12px 25px",
+            borderRadius: "3px",
+            marginLeft: '58px'
+          }}
+        >
+          Resume
+        </Link>
+      </div>
     </div>
   </header>
-)
+);
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  siteTitle: PropTypes.string
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: ``
+};
 
-export default Header
+export default Header;
