@@ -1,33 +1,32 @@
-import React from "react";
-
-import styled from "@emotion/styled";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 
 const SectionLabel = ({ index, label }) => {
   return (
-    <SectionHeader>
-      <SectionLabelIndex>[{index}]</SectionLabelIndex>
-      <SectionLabelText>{label}</SectionLabelText>
-      <SectionLabelLine />
-    </SectionHeader>
+    <div css={sectionHeader}>
+      <span css={sectionLabelIndex}>[{index}]</span>
+      <span css={sectionLabelText}>{label}</span>
+      <span css={sectionLabelLine}/>
+    </div>
   );
 };
 
-const SectionHeader = styled.div`
+const sectionHeader = css`
   display: flex;
   align-items: center;
 `;
 
-const SectionLabelIndex = styled.span`
+const sectionLabelIndex = css`
   color: #126191;
   padding-right: 5px;
 `;
 
-const SectionLabelText = styled.span`
+const sectionLabelText = css`
   color: #e9f6fe;
   padding-right: 5px;
 `;
 
-const SectionLabelLine = styled.span`
+const sectionLabelLine = css`
   background-color: #939498;
   height: 1px;
   width: 100%;

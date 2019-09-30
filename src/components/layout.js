@@ -4,11 +4,11 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-
-import React from "react";
+import React from "react"; // eslint-disable-line
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "@emotion/styled";
 
 import Header from "./header";
 
@@ -28,25 +28,25 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <PageBodyWrapper>
+      <div css={pageBodyWrapper}>
         <main>{children}</main>
-      </PageBodyWrapper>
-      <Footer>
+      </div>
+      <footer css={footer}>
         © {new Date().getFullYear()}, Built with
         {`  `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </Footer>
+      </footer>
     </>
   );
 };
 
-const Footer = styled.footer`
+const footer = css`
   background-color: hotpink;
   display: flex;
   padding: 1.45rem 1.0875rem;
 `;
 
-const PageBodyWrapper = styled.div`
+const pageBodyWrapper = css`
   margin: 0 auto;
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;

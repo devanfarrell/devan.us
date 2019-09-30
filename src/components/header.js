@@ -1,22 +1,28 @@
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
-import React from "react";
 import Logo from "./logo";
-import styled from "@emotion/styled";
 
 const Header = ({ siteTitle }) => (
-  <HeaderWrapper>
-    <HeaderInnerWrapper>
-      <StyledLogoLink to="/">
+  <header css={headerWrapper}>
+    <div css={headerInnerWrapper}>
+      <Link css={styledLogoLink} to="/">
         <Logo />
-      </StyledLogoLink>
-      <LinksBlock>
-        <PlainLink to="/">About</PlainLink>
-        <PlainLink to="/blog">Blog</PlainLink>
-        <ResumeLink to="/resume">Resume</ResumeLink>
-      </LinksBlock>
-    </HeaderInnerWrapper>
-  </HeaderWrapper>
+      </Link>
+      <div css={linksBlock}>
+        <Link css={plainLink} to="/">
+          About
+        </Link>
+        <Link css={plainLink} to="/blog">
+          Blog
+        </Link>
+        <Link css={resumeLink} to="/resume">
+          Resume
+        </Link>
+      </div>
+    </div>
+  </header>
 );
 
 Header.propTypes = {
@@ -27,12 +33,12 @@ Header.defaultProps = {
   siteTitle: ``
 };
 
-const HeaderWrapper = styled.header`
+const headerWrapper = css`
   background: #2f2b2c;
   margin-bottom: 1.45rem;
 `;
 
-const HeaderInnerWrapper = styled.div`
+const headerInnerWrapper = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,22 +46,22 @@ const HeaderInnerWrapper = styled.div`
   padding: 1.45rem 1.0875rem;
 `;
 
-const StyledLogoLink = styled(Link)`
+const styledLogoLink = css`
   width: 40px;
   fill: #1ea2f1;
 `;
 
-const LinksBlock = styled.div`
+const linksBlock = css`
   display: inline-block;
 `;
 
-const PlainLink = styled(Link)`
+const plainLink = css`
   color: #e9f6fe;
   text-decoration: none;
   margin-left: 58px;
 `;
 
-const ResumeLink = styled(Link)`
+const resumeLink = css`
   color: #1ea2f1;
   border: solid 2px #1ea2f1;
   text-decoration: none;
