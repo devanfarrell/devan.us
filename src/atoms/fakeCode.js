@@ -1,17 +1,25 @@
 import React from "react";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
+import { vars } from "../style";
+
+const svgStyle = css`
+  position: absolute;
+  max-width: 1300px;
+  height: 100%;
+  fill-opacity: 0.1;
+  min-width: 50vw;
+  left: -15px;
+  @media (min-width: ${vars.smallBreakPoint}) {
+    left: -90px;
+  }
+  @media (min-width: ${vars.largeBreakPoint}) {
+    left: -190px;
+  }
+`;
 
 const FakeCode = () => (
-  <svg
-    viewBox="0 0 1150 628"
-    style={{
-      fillOpacity: 0.15,
-      position: "absolute",
-      left: "1.0875rem",
-      width: "90vw",
-      padding: "5rem 0",
-      maxWidth: "1300px"
-    }}
-  >
+  <svg css={svgStyle} viewBox="0 0 1150 628">
     <path
       d="M15.13,7.565c0,-4.175 -3.389,-7.565 -7.565,-7.565c-4.175,0 -7.565,3.39 -7.565,7.565l0,612.785c0,4.175 3.39,7.565 7.565,7.565c4.176,0 7.565,-3.39 7.565,-7.565l0,-612.785Z"
       style={{ fill: "#939498" }}

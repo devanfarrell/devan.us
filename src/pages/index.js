@@ -4,19 +4,23 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import SectionLabel from "../components/sectionLabel";
 import Image from "../components/image";
-import FakeCode from "../atoms/fakeCode";
+import CompanyTable from "../components/companyTable";
+// import FakeCode from "../atoms/fakeCode";
+import { vars, flexVertical, colors } from "../style";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <h5 css={intro}>Hello, my name is</h5>
-    <h1 css={myName}>Devan Farrell</h1>
+    <h1 css={myName}>Devan Farrell.</h1>
     <h2 css={subText}>I build awesome stuff on the internet</h2>
     <h6 css={subSubText}>
       I specialize in React web applications and rapid prototyping.
     </h6>
+    <div css={inverseFace}>
+      <Image />
+    </div>
     <div css={homeSection}>
-      <FakeCode />
       <div css={flexVertical}>
         <SectionLabel label="About" index="0" />
         <p css={paragraphText}>
@@ -33,16 +37,38 @@ const IndexPage = () => (
         <Image />
       </div>
     </div>
+    <div css={flexVertical}>
+      <SectionLabel label="History" index="1" />
+      <CompanyTable
+        companies={["PNNL", "Remitly", "USAF"]}
+        titles={[
+          "Software Engineer",
+          "Software Development Engineer Intern",
+          "Staff Sergeant"
+        ]}
+        links={["https://www.pnnl.gov", "https://www.remitly.com", null]}
+        bullets={[
+          [
+            "Led team of 7 as scrum master; set priorities, created tasks, and kept project on time and on budget… funded additional $1.1 million",
+            "Engineered a hierarchical term data web visualization; integrated webGL and physics engines… completed two deliverables",
+            "Identified knowledge gap in integrating with web sockets; created reusable design templates… presented work at group meetup"
+          ],
+          [
+            "Built foundation for a new document scraping vendor in an existing micro-service",
+            "Joined Compliance Experience Team; functioned as a full-stack developer... tackled long standing bugs"
+          ],
+          [
+            "Worked as a liaison between producers and consumers of military intelligence",
+            "First-line supervisor of 9+ collection operators using $85M systems"
+          ]
+        ]}
+      />
+    </div>
   </Layout>
 );
 
-const flexVertical = css`
-  display: flex;
-  flex-direction: column;
-`;
-
 const paragraphText = css`
-  color: #e9f6fe;
+  color: ${colors.offWhite};
   font-size: 1rem;
   line-height: 2rem;
 `;
@@ -51,50 +77,68 @@ const homeSection = css`
   display: flex;
   position: relative;
   align-items: center;
-  padding-top: 15rem;
+  margin: 1.5rem 0;
+  padding: 3.5rem 0;
   flex-direction row;
 `;
 
 const myName = css`
-  color: #e9f6fe;
+  color: ${colors.offWhite};
   display: block;
   margin: 0;
+  margin-bottom: 15px;
   padding: 0;
   font-weight: bold;
   text-rendering: optimize-legibility;
-  font-size: 4.25rem;
+  font-size: 5rem;
   line-height: 1;
 `;
 
 const myFace = css`
   min-width: 200px;
   width: 100%;
-  display: flex;
+  display: none;
+
   flex: 1 1 auto;
-  padding-left: 100px;
+  padding-left: 75px;
+  @media (min-width: ${vars.smallBreakPoint}) {
+    display: flex;
+  }
+`;
+
+const inverseFace = css`
+  min-width: 200px;
+  width: 50%;
+  margin: 2rem auto;
+  @media (min-width: ${vars.smallBreakPoint}) {
+    display: none;
+    margin: 0;
+  }
 `;
 
 const subText = css`
-  color: #126191;
+  color: ${colors.accent};
   display: block;
   margin: 0;
+  margin-bottom: 20px;
   padding: 0;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 3.75rem;
-  line-height: 1;
+  line-height: 1.2;
 `;
 
 const intro = css`
-  color: #1ea2f1;
+  color: ${colors.highlight};
   margin: 0;
+  margin-bottom: 30px;
   padding: 0;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.25rem;
 `;
 const subSubText = css`
-  color: #e9f6fe;
+  color: ${colors.offWhite};
   display: block;
   margin: 0;
   padding: 0;

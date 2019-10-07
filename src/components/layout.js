@@ -9,6 +9,7 @@ import React from "react"; // eslint-disable-line
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
+import { vars, colors } from "../style";
 
 import Header from "./header";
 
@@ -41,17 +42,23 @@ const Layout = ({ children }) => {
 };
 
 const footer = css`
-  background-color: hotpink;
+  background-color: #2d292a;
   display: flex;
   padding: 1.45rem 1.0875rem;
 `;
 
 const pageBodyWrapper = css`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
+  background-color: ${colors.background};
+  padding: 0px 20px 1.45rem 20px;
   padding-top: 0;
   min-height: 90vh;
+
+  @media (min-width: ${vars.smallBreakPoint}) {
+    padding: 0px 120px 1.45rem 120px;
+  }
+  @media (min-width: ${vars.largeBreakPoint}) {
+    padding: 0px 200px 1.45rem 200px;
+  }
 `;
 
 Layout.propTypes = {

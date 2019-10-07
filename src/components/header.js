@@ -3,6 +3,7 @@ import { css, jsx } from "@emotion/core";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import Logo from "./logo";
+import { colors } from "../style";
 
 const Header = ({ siteTitle }) => (
   <header css={headerWrapper}>
@@ -34,8 +35,8 @@ Header.defaultProps = {
 };
 
 const headerWrapper = css`
-  background: #2f2b2c;
-  margin-bottom: 1.45rem;
+  background: ${colors.background};
+  padding-bottom: 1.45rem;
 `;
 
 const headerInnerWrapper = css`
@@ -48,7 +49,7 @@ const headerInnerWrapper = css`
 
 const styledLogoLink = css`
   width: 40px;
-  fill: #1ea2f1;
+  fill: ${colors.highlight};
 `;
 
 const linksBlock = css`
@@ -56,14 +57,14 @@ const linksBlock = css`
 `;
 
 const plainLink = css`
-  color: #e9f6fe;
+  color: ${colors.offWhite};
   text-decoration: none;
   margin-left: 58px;
 `;
 
 const resumeLink = css`
-  color: #1ea2f1;
-  border: solid 2px #1ea2f1;
+  color: ${colors.highlight};
+  border: solid 2px ${colors.highlight};
   text-decoration: none;
   padding: 12px 25px;
   border-radius: 3px;
