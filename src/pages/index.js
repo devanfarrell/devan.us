@@ -5,8 +5,7 @@ import SEO from "../components/seo";
 import SectionLabel from "../components/sectionLabel";
 import Image from "../components/image";
 import CompanyTable from "../components/companyTable";
-// import FakeCode from "../atoms/fakeCode";
-import { vars, flexVertical, colors } from "../style";
+import { vars, flexVertical, colors, paragraph } from "../style";
 
 const IndexPage = () => (
   <Layout>
@@ -23,7 +22,7 @@ const IndexPage = () => (
     <div css={homeSection}>
       <div css={flexVertical}>
         <SectionLabel label="About" index="0" />
-        <p css={paragraphText}>
+        <p css={paragraph}>
           I'm Devan, a second-career software engineer at Pacific Northwest
           National Laboratory. Tofu locavore cred chambray crucifix synth etsy.
           Street art pabst gochujang tofu YOLO. Enamel pin fashion axe
@@ -64,14 +63,15 @@ const IndexPage = () => (
         ]}
       />
     </div>
+    <div css={flexVertical}>
+      <SectionLabel label="Projects" index="2" />
+      <h5 css={projectName}>GateViz</h5>
+      <p css={paragraph}>
+        A combinational logic circuit education tool and visualization.
+      </p>
+    </div>
   </Layout>
 );
-
-const paragraphText = css`
-  color: ${colors.offWhite};
-  font-size: 1rem;
-  line-height: 2rem;
-`;
 
 const homeSection = css`
   display: flex;
@@ -145,6 +145,17 @@ const subSubText = css`
   font-size: 1.25rem;
   text-rendering: optimizeLegibility;
   font-weight: normal;
+  margin-top: 15px;
+`;
+
+const projectName = css`
+  color: ${colors.highlight};
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 1.25rem;
+  text-rendering: optimizeLegibility;
+  font-weight: bold;
   margin-top: 15px;
 `;
 

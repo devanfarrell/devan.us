@@ -1,5 +1,13 @@
 import { css } from "@emotion/core";
 
+export const colors = {
+  background: "#2f2b2c",
+  highlight: "#EE9F5A",
+  offWhite: "#e9f6fe",
+  accent: "#B97E4C",
+  grey500: "#75797C"
+};
+
 export const vars = {
   smallBreakPoint: "800px",
   largeBreakPoint: "1000px"
@@ -15,10 +23,14 @@ export const flexHorizontal = css`
   flex-direction: row;
 `;
 
-export const colors = {
-  background: "#2f2b2c",
-  highlight: "#1ea2f1",
-  offWhite: "#e9f6fe",
-  accent: "#126191",
-  grey500: "#75797C"
-};
+export const anchor = css`
+  color: ${colors.highlight};
+  margin-left: 5px;
+  text-decoration: none;
+`;
+
+export const paragraph = css`
+  color: ${colors.offWhite};
+  font-size: 1.1rem;
+  line-height: 2rem;
+`;

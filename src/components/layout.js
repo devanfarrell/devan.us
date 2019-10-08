@@ -9,7 +9,7 @@ import React from "react"; // eslint-disable-line
 import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import { vars, colors } from "../style";
+import { vars, colors, anchor } from "../style";
 
 import Header from "./header";
 
@@ -33,18 +33,23 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </div>
       <footer css={footer}>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()}, Designed and developed by Devan Farrell.
+        Built with
         {`  `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <a css={anchor} href="https://www.gatsbyjs.org">
+          Gatsby
+        </a>
       </footer>
     </>
   );
 };
 
 const footer = css`
-  background-color: #2d292a;
+  background-color: ${colors.background};
   display: flex;
+  justify-content: center;
   padding: 1.45rem 1.0875rem;
+  color: ${colors.offWhite};
 `;
 
 const pageBodyWrapper = css`

@@ -2,7 +2,7 @@
 import { css, jsx } from "@emotion/core";
 import React, { useState } from "react"; // eslint-disable-line
 import { motion } from "framer-motion";
-import { colors } from "../style";
+import { colors, anchor } from "../style";
 
 const Button = ({ onClick, children, index, activeindex }) => {
   return (
@@ -40,7 +40,7 @@ const CompanyTableBody = ({
               {link && (
                 <a
                   target="_blank"
-                  css={companyLink}
+                  css={anchor}
                   href={link}
                   rel="noopener noreferrer"
                 >
@@ -116,8 +116,8 @@ const bulletRow = css`
 const bulletStyle = css`
   display: inline-flex;
   flex: 0 0 auto;
-  height: 5px;
-  width: 5px;
+  height: 6px;
+  width: 6px;
   background-color: white;
   margin-right: 8px;
 `;
@@ -136,11 +136,6 @@ const jobTitle = css`
   margin: 0;
 `;
 
-const companyLink = css`
-  color: ${colors.highlight};
-  margin-left: 5px;
-  text-decoration: none;
-`;
 
 const jobDescription = css`
   white-space: pre-line;
@@ -150,7 +145,7 @@ const jobDescription = css`
 `;
 
 const buttonStyle = active => css`
-  background-color: ${active ? "rgba(32, 152, 226, 0.12)" : "transparent"};
+  background-color: ${active ? "rgba(238, 159, 90, 0.15)" : "transparent"};
   border: none;
   color: ${colors.highlight};
   font-weight: bold;
