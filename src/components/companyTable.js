@@ -155,6 +155,7 @@ const buttonStyle = active => css`
   border-left: 2px solid ${active ? colors.highlight : colors.grey500};
   outline: none;
   transition: 0.4s ease-in-out;
+  margin: 0;
 `;
 
 export const companyNames = css`
